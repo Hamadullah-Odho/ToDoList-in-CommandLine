@@ -4,7 +4,7 @@ public class ToDoList {
     static Scanner scan = new Scanner(System.in);
     //String arrays to store tasks and dates
     static String[] tasks;
-    //date not used
+    static String[] dates;
     
     // limit variable to check if todolist is full or not
     static int limit;
@@ -12,6 +12,7 @@ public class ToDoList {
     // static block to initializing static variables for proper usage
     static{
         tasks = new String[50];
+        dates = new String[50];
         limit = 0;
     }
 
@@ -20,7 +21,11 @@ public class ToDoList {
         System.out.print("Enter Task Name : ");
         try {
             String task = scan.nextLine();
+            System.out.println("Date Format : 22-1-2025");
+            System.out.print("Enter Task Date : ");
+            String task_date = scan.nextLine();
             tasks[limit] = task;
+            dates[limit] = task_date;
             limit++;
         }
         catch (ArrayIndexOutOfBoundsException error){
@@ -40,6 +45,7 @@ public class ToDoList {
             for (String task : tasks) {
                 if (remove_task.equals(task)) {
                     tasks[remove_index] = null;
+                    dates[remove_index] = null;
                     System.out.println("Task Removed");
                 }
                 remove_index++;
@@ -53,12 +59,14 @@ public class ToDoList {
     static void showToDoList(){
 
         try {
+            int date_index = 0;
             System.out.println("> To Do List");
             for (String task : tasks) {
 
                 if(task != (null)){
-                    System.out.println(task);
+                    System.out.println("Task Name :"+ task + "> Date :" + dates[date_index] );
                 }
+                date_index++;
             }
             System.out.println();
         }
