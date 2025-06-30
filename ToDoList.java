@@ -5,14 +5,13 @@ public class ToDoList {
     //String arrays to store tasks and dates
     static String[] tasks;
     //date not used
-    static String[] date;
+    
     // limit variable to check if todolist is full or not
     static int limit;
 
     // static block to initializing static variables for proper usage
     static{
         tasks = new String[50];
-        date = new String[50];
         limit = 0;
     }
 
